@@ -9,3 +9,4 @@ This is the official code for our paper *Sequence-to-Action: Grammatical Error C
 ## Release Notes
 
 * 2022/07/02: Released sequence construction part. More details will be released soon.
+* 2022/08/29: Add code for criterion, task, and model.
