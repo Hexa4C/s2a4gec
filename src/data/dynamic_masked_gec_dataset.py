@@ -13,7 +13,7 @@ import yaml
 from fairseq.data import data_utils, FairseqDataset
 from fairseq.data.language_pair_dataset import LanguagePairDataset
 
-from .scg_seq import scg_gen
+from .s2a_seq import s2a_gen
 
 
 logger = logging.getLogger(__name__)
@@ -161,7 +161,7 @@ class DynamicMaskedGECDataset(LanguagePairDataset):
         src_item = torch.cat([torch.LongTensor([eos]), src_item])
         tgt_item = torch.cat([torch.LongTensor([eos]), self.tgt[index]])
         if tgt_item is not None:
-            prec, succ, label, target = scg_gen(src_item, tgt_item, self.src_dict.blk)
+            prec, succ, label, target = s2a_gen(src_item, tgt_item, self.src_dict.blk)
         example['prev_output_tokens'] = prec
         example['succ_tokens'] = succ
         example['labels'] = label

@@ -1,0 +1,2 @@
+from .s2a_loss import S2ALabelSmoothedCrossEntropyCriterion
+from .gec_loss import GECLabelSmoothedCrossEntropyCriterion

@@ -60,7 +60,7 @@ def get_prec_tokens(comb_tokens, mask):
     return prec_tokens
 
 
-def scg_gen(src_tokens: Tensor, tgt_tokens: Tensor, blk_idx=-1, input_blk=False):
+def s2a_gen(src_tokens: Tensor, tgt_tokens: Tensor, blk_idx=-1, input_blk=False):
     src_list = [str(i) for i in src_tokens.tolist()]
     tgt_list = [str(i) for i in tgt_tokens.tolist()]
     alignments = align_sequences(" ".join(src_list), " ".join(tgt_list))    # get aligned edit operations
@@ -82,7 +82,7 @@ def scg_gen(src_tokens: Tensor, tgt_tokens: Tensor, blk_idx=-1, input_blk=False)
 def test_main():
     src = torch.Tensor([2, 11, 13, 15, 12, 14, 15, 19, 20, 3]).long()
     tgt = torch.Tensor([2, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 3]).long()
-    res = scg_gen(src, tgt, input_blk=True)
+    res = s2a_gen(src, tgt, input_blk=True)
     print(res)
 
 
